@@ -1,0 +1,220 @@
+2012-09-04 08:35:01.192 [main] INFO  com.xys.cenxi.customer.start.LoginUI - 用户admin登录。
+2012-09-04 08:35:01.288 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-04 08:35:01.289 [main] INFO  com.xys.cenxi.customer.util.Util - 创建数据库文件夹：E:\workspace\com.xys.cenxi.customer\hsqldb
+2012-09-04 08:35:01.351 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-04 08:35:03.386 [main] INFO  com.xys.cenxi.customer.db.TableCreater - 创建数据库表。false
+2012-09-04 08:35:04.407 [main] ERROR com.xys.cenxi.customer.db.TableCreater - 导入行政区划数据出错：
+org.nutz.dao.DaoException: org.nutz.dao.DaoException: !Nutz SQL Error: 'INSERT INTO t_regional(rowID,parentID,name,sequence,regionalCode,desc) VALUES(?,?,?,?,?,?) 
+    |        1 |        2 |       3 |  4 |              5 |                                                          6 |
+    |----------|----------|---------|----|----------------|------------------------------------------------------------|
+    | H6O9NX3G | H6O9NX2O | 水汶社区居委会 | 00 | 45048110500100 | 增加组别：古览组；茶田组；碑石组；大坡组；深同组；寨口组；大王平组；桂一组；桂二组；金罗组；牛蕴组；石吉组；坑口组。 |
+  For example:> "INSERT INTO t_regional(rowID,parentID,name,sequence,regionalCode,desc) VALUES('H6O9NX3G','H6O9NX2O','水汶社区居委会','00','45048110500100','增加组别：古览组；茶田组；碑石组；大坡组；深同组；寨口组；大王平组；桂一组；桂二组；金罗组；牛蕴组；石吉组；坑口组。') "'
+PreparedStatement: 
+'INSERT INTO t_regional(rowID,parentID,name,sequence,regionalCode,desc) VALUES(?,?,?,?,?,?) '
+	at org.nutz.dao.impl.sql.run.NutDaoRunner.run(NutDaoRunner.java:75) ~[nutz-1.b.43-jdk6.jar:na]
+	at org.nutz.dao.impl.DaoSupport._exec(DaoSupport.java:180) ~[nutz-1.b.43-jdk6.jar:na]
+	at org.nutz.dao.impl.EntityOperator.exec(EntityOperator.java:50) ~[nutz-1.b.43-jdk6.jar:na]
+	at org.nutz.dao.impl.NutDao.insert(NutDao.java:110) ~[nutz-1.b.43-jdk6.jar:na]
+	at com.xys.cenxi.customer.data.RegionalService.add(RegionalService.java:70) ~[bin/:na]
+	at com.xys.cenxi.customer.data.RegionalService.loadRegionalFromFile(RegionalService.java:146) ~[bin/:na]
+	at com.xys.cenxi.customer.db.TableCreater.createTable(TableCreater.java:53) ~[bin/:na]
+	at com.xys.cenxi.customer.start.AppMain.main(AppMain.java:63) [bin/:na]
+Caused by: org.nutz.dao.DaoException: !Nutz SQL Error: 'INSERT INTO t_regional(rowID,parentID,name,sequence,regionalCode,desc) VALUES(?,?,?,?,?,?) 
+    |        1 |        2 |       3 |  4 |              5 |                                                          6 |
+    |----------|----------|---------|----|----------------|------------------------------------------------------------|
+    | H6O9NX3G | H6O9NX2O | 水汶社区居委会 | 00 | 45048110500100 | 增加组别：古览组；茶田组；碑石组；大坡组；深同组；寨口组；大王平组；桂一组；桂二组；金罗组；牛蕴组；石吉组；坑口组。 |
+  For example:> "INSERT INTO t_regional(rowID,parentID,name,sequence,regionalCode,desc) VALUES('H6O9NX3G','H6O9NX2O','水汶社区居委会','00','45048110500100','增加组别：古览组；茶田组；碑石组；大坡组；深同组；寨口组；大王平组；桂一组；桂二组；金罗组；牛蕴组；石吉组；坑口组。') "'
+PreparedStatement: 
+'INSERT INTO t_regional(rowID,parentID,name,sequence,regionalCode,desc) VALUES(?,?,?,?,?,?) '
+	at org.nutz.dao.impl.sql.run.NutDaoExecutor.exec(NutDaoExecutor.java:149) ~[nutz-1.b.43-jdk6.jar:na]
+	at org.nutz.dao.impl.DaoSupport$2.invoke(DaoSupport.java:188) ~[nutz-1.b.43-jdk6.jar:na]
+	at org.nutz.dao.impl.sql.run.NutDaoRunner.run(NutDaoRunner.java:63) ~[nutz-1.b.43-jdk6.jar:na]
+	... 7 common frames omitted
+Caused by: java.sql.SQLDataException: data exception: string data, right truncation
+	at org.hsqldb.jdbc.Util.sqlException(Unknown Source) ~[hsqldb.jar:2.2.8]
+	at org.hsqldb.jdbc.Util.sqlException(Unknown Source) ~[hsqldb.jar:2.2.8]
+	at org.hsqldb.jdbc.JDBCPreparedStatement.fetchResult(Unknown Source) ~[hsqldb.jar:2.2.8]
+	at org.hsqldb.jdbc.JDBCPreparedStatement.execute(Unknown Source) ~[hsqldb.jar:2.2.8]
+	at sun.reflect.GeneratedMethodAccessor17.invoke(Unknown Source) ~[na:na]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25) ~[na:1.6.0_34]
+	at java.lang.reflect.Method.invoke(Method.java:597) ~[na:1.6.0_34]
+	at org.logicalcobwebs.proxool.ProxyStatement.invoke(ProxyStatement.java:100) ~[proxool.jar:na]
+	at org.logicalcobwebs.proxool.ProxyStatement.intercept(ProxyStatement.java:57) ~[proxool.jar:na]
+	at $java.sql.Statement$$EnhancerByProxool$$e527d78a.execute(<generated>) ~[proxool.jar:na]
+	at org.nutz.dao.impl.sql.run.NutDaoExecutor._runPreparedStatement(NutDaoExecutor.java:179) ~[nutz-1.b.43-jdk6.jar:na]
+	at org.nutz.dao.impl.sql.run.NutDaoExecutor.exec(NutDaoExecutor.java:139) ~[nutz-1.b.43-jdk6.jar:na]
+	... 9 common frames omitted
+Caused by: org.hsqldb.HsqlException: data exception: string data, right truncation
+	at org.hsqldb.error.Error.error(Unknown Source) ~[hsqldb.jar:2.2.8]
+	at org.hsqldb.error.Error.error(Unknown Source) ~[hsqldb.jar:2.2.8]
+	at org.hsqldb.types.CharacterType.castOrConvertToType(Unknown Source) ~[hsqldb.jar:2.2.8]
+	at org.hsqldb.types.CharacterType.convertToType(Unknown Source) ~[hsqldb.jar:2.2.8]
+	at org.hsqldb.StatementDML.getInsertData(Unknown Source) ~[hsqldb.jar:2.2.8]
+	at org.hsqldb.StatementInsert.getResult(Unknown Source) ~[hsqldb.jar:2.2.8]
+	at org.hsqldb.StatementDMQL.execute(Unknown Source) ~[hsqldb.jar:2.2.8]
+	at org.hsqldb.Session.executeCompiledStatement(Unknown Source) ~[hsqldb.jar:2.2.8]
+	at org.hsqldb.Session.execute(Unknown Source) ~[hsqldb.jar:2.2.8]
+	... 19 common frames omitted
+2012-09-04 08:43:35.711 [main] INFO  com.xys.cenxi.customer.start.LoginUI - 用户admin登录。
+2012-09-04 08:43:35.723 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-04 08:43:35.724 [main] INFO  com.xys.cenxi.customer.util.Util - 创建数据库文件夹：E:\workspace\com.xys.cenxi.customer\hsqldb
+2012-09-04 08:43:35.744 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-04 08:43:37.248 [main] INFO  com.xys.cenxi.customer.db.TableCreater - 创建数据库表。false
+2012-09-04 08:43:38.126 [main] ERROR com.xys.cenxi.customer.db.TableCreater - 导入行政区划数据出错：
+java.lang.IndexOutOfBoundsException: Index: 14, Size: 14
+	at java.util.ArrayList.RangeCheck(ArrayList.java:547) ~[na:1.6.0_34]
+	at java.util.ArrayList.get(ArrayList.java:322) ~[na:1.6.0_34]
+	at com.xys.cenxi.customer.data.RegionalService.loadRegionalFromFile(RegionalService.java:121) ~[bin/:na]
+	at com.xys.cenxi.customer.db.TableCreater.createTable(TableCreater.java:53) ~[bin/:na]
+	at com.xys.cenxi.customer.start.AppMain.main(AppMain.java:63) [bin/:na]
+2012-09-04 08:45:15.618 [main] INFO  com.xys.cenxi.customer.start.LoginUI - 用户admin登录。
+2012-09-04 08:45:15.633 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-04 08:45:15.633 [main] INFO  com.xys.cenxi.customer.util.Util - 创建数据库文件夹：E:\workspace\com.xys.cenxi.customer\hsqldb
+2012-09-04 08:45:15.652 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-04 08:45:17.145 [main] INFO  com.xys.cenxi.customer.db.TableCreater - 创建数据库表。false
+2012-09-04 08:53:30.750 [main] INFO  com.xys.cenxi.customer.start.LoginUI - 用户admin登录。
+2012-09-04 08:53:30.764 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-04 08:53:30.765 [main] INFO  com.xys.cenxi.customer.util.Util - 创建数据库文件夹：E:\workspace\com.xys.cenxi.customer\hsqldb
+2012-09-04 08:53:30.783 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-04 08:53:32.286 [main] INFO  com.xys.cenxi.customer.db.TableCreater - 创建数据库表。false
+2012-09-04 09:01:40.080 [main] INFO  com.xys.cenxi.customer.start.LoginUI - 用户admin登录。
+2012-09-04 09:01:40.093 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-04 09:01:40.094 [main] INFO  com.xys.cenxi.customer.util.Util - 创建数据库文件夹：E:\workspace\com.xys.cenxi.customer\hsqldb
+2012-09-04 09:01:40.115 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-04 09:01:42.755 [main] INFO  com.xys.cenxi.customer.db.TableCreater - 创建数据库表。false
+2012-09-04 09:13:18.984 [main] INFO  com.xys.cenxi.customer.start.LoginUI - 用户admin登录。
+2012-09-04 09:13:19.001 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-04 09:13:19.002 [main] INFO  com.xys.cenxi.customer.util.Util - 创建数据库文件夹：E:\workspace\com.xys.cenxi.customer\hsqldb
+2012-09-04 09:13:19.026 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-04 09:13:21.985 [main] INFO  com.xys.cenxi.customer.db.TableCreater - 创建数据库表。false
+2012-09-04 09:18:53.300 [main] INFO  com.xys.cenxi.customer.start.LoginUI - 用户admin登录。
+2012-09-04 09:18:53.312 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-04 09:18:53.313 [main] INFO  com.xys.cenxi.customer.util.Util - 创建数据库文件夹：E:\workspace\com.xys.cenxi.customer\hsqldb
+2012-09-04 09:18:53.338 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-04 09:18:56.206 [main] INFO  com.xys.cenxi.customer.db.TableCreater - 创建数据库表。false
+2012-09-04 09:21:53.764 [main] INFO  com.xys.cenxi.customer.start.LoginUI - 用户admin登录。
+2012-09-04 09:21:53.781 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-04 09:21:53.781 [main] INFO  com.xys.cenxi.customer.util.Util - 创建数据库文件夹：E:\workspace\com.xys.cenxi.customer\hsqldb
+2012-09-04 09:21:53.801 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-04 09:21:56.116 [main] INFO  com.xys.cenxi.customer.db.TableCreater - 创建数据库表。false
+2012-09-04 09:26:47.909 [main] INFO  com.xys.cenxi.customer.start.LoginUI - 用户admin登录。
+2012-09-04 09:26:47.924 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-04 09:26:47.925 [main] INFO  com.xys.cenxi.customer.util.Util - 创建数据库文件夹：E:\workspace\com.xys.cenxi.customer\hsqldb
+2012-09-04 09:26:47.943 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-04 09:26:50.223 [main] INFO  com.xys.cenxi.customer.db.TableCreater - 创建数据库表。false
+2012-09-04 09:32:48.643 [main] INFO  com.xys.cenxi.customer.start.LoginUI - 用户admin登录。
+2012-09-04 09:32:48.657 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-04 09:32:48.657 [main] INFO  com.xys.cenxi.customer.util.Util - 创建数据库文件夹：E:\workspace\com.xys.cenxi.customer\hsqldb
+2012-09-04 09:32:48.677 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-04 09:32:50.988 [main] INFO  com.xys.cenxi.customer.db.TableCreater - 创建数据库表。false
+2012-09-04 09:38:03.617 [main] INFO  com.xys.cenxi.customer.start.LoginUI - 用户admin登录。
+2012-09-04 09:38:03.630 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-04 09:38:03.631 [main] INFO  com.xys.cenxi.customer.util.Util - 创建数据库文件夹：E:\workspace\com.xys.cenxi.customer\hsqldb
+2012-09-04 09:38:03.654 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-04 09:38:05.695 [main] INFO  com.xys.cenxi.customer.db.TableCreater - 创建数据库表。false
+2012-09-04 09:57:53.759 [main] INFO  com.xys.cenxi.customer.start.LoginUI - 用户admin登录。
+2012-09-04 09:57:53.772 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-04 09:57:53.773 [main] INFO  com.xys.cenxi.customer.util.Util - 创建数据库文件夹：E:\workspace\com.xys.cenxi.customer\hsqldb
+2012-09-04 09:57:53.791 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-04 09:58:08.527 [main] INFO  com.xys.cenxi.customer.db.TableCreater - 创建数据库表。false
+2012-09-04 10:05:08.180 [main] INFO  com.xys.cenxi.customer.start.LoginUI - 用户admin登录。
+2012-09-04 10:05:08.192 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-04 10:05:08.192 [main] INFO  com.xys.cenxi.customer.util.Util - 创建数据库文件夹：E:\workspace\com.xys.cenxi.customer\hsqldb
+2012-09-04 10:05:08.212 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-04 10:05:17.313 [main] INFO  com.xys.cenxi.customer.db.TableCreater - 创建数据库表。false
+2012-09-04 10:18:31.907 [main] INFO  com.xys.cenxi.customer.start.LoginUI - 用户admin登录。
+2012-09-04 10:18:31.920 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-04 10:18:31.921 [main] INFO  com.xys.cenxi.customer.util.Util - 创建数据库文件夹：E:\workspace\com.xys.cenxi.customer\hsqldb
+2012-09-04 10:18:31.940 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-04 10:18:34.077 [main] INFO  com.xys.cenxi.customer.db.TableCreater - 创建数据库表。false
+2012-09-04 11:00:56.335 [main] INFO  com.xys.cenxi.customer.start.LoginUI - 用户admin登录。
+2012-09-04 11:00:56.347 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-04 11:00:56.348 [main] INFO  com.xys.cenxi.customer.util.Util - 创建数据库文件夹：E:\workspace\com.xys.cenxi.customer\hsqldb
+2012-09-04 11:00:56.372 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-04 11:00:58.570 [main] INFO  com.xys.cenxi.customer.db.TableCreater - 创建数据库表。false
+2012-09-04 11:09:21.784 [main] INFO  com.xys.cenxi.customer.start.LoginUI - 用户admin登录。
+2012-09-04 11:09:21.799 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-04 11:09:21.800 [main] INFO  com.xys.cenxi.customer.util.Util - 创建数据库文件夹：E:\workspace\com.xys.cenxi.customer\hsqldb
+2012-09-04 11:09:21.824 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-04 11:09:23.707 [main] INFO  com.xys.cenxi.customer.db.TableCreater - 创建数据库表。false
+2012-09-04 11:45:00.742 [main] INFO  com.xys.cenxi.customer.start.LoginUI - 用户admin登录。
+2012-09-04 11:45:00.755 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-04 11:45:00.756 [main] INFO  com.xys.cenxi.customer.util.Util - 创建数据库文件夹：E:\workspace\com.xys.cenxi.customer\hsqldb
+2012-09-04 11:45:00.778 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-04 11:45:02.712 [main] INFO  com.xys.cenxi.customer.db.TableCreater - 创建数据库表。false
+2012-09-04 11:51:09.964 [main] INFO  com.xys.cenxi.customer.start.LoginUI - 用户admin登录。
+2012-09-04 11:51:09.976 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-04 11:51:09.977 [main] INFO  com.xys.cenxi.customer.util.Util - 创建数据库文件夹：E:\workspace\com.xys.cenxi.customer\hsqldb
+2012-09-04 11:51:09.997 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-04 11:51:11.879 [main] INFO  com.xys.cenxi.customer.db.TableCreater - 创建数据库表。false
+2012-09-04 11:53:37.706 [main] INFO  com.xys.cenxi.customer.start.LoginUI - 用户admin登录。
+2012-09-04 11:53:37.719 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-04 11:53:37.720 [main] INFO  com.xys.cenxi.customer.util.Util - 创建数据库文件夹：E:\workspace\com.xys.cenxi.customer\hsqldb
+2012-09-04 11:53:37.743 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-04 11:53:39.620 [main] INFO  com.xys.cenxi.customer.db.TableCreater - 创建数据库表。false
+2012-09-04 14:09:59.502 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-04 14:09:59.506 [main] INFO  com.xys.cenxi.customer.util.Util - 创建数据库文件夹：E:\workspace\com.xys.cenxi.customer\hsqldb
+2012-09-04 14:09:59.538 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-04 14:10:01.468 [main] INFO  com.xys.cenxi.customer.db.TableCreater - 创建数据库表。false
+2012-09-04 14:10:08.911 [main] INFO  com.xys.cenxi.customer.start.LoginUI - 用户admin登录。
+2012-09-04 14:13:13.838 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-04 14:13:13.842 [main] INFO  com.xys.cenxi.customer.util.Util - 创建数据库文件夹：E:\workspace\com.xys.cenxi.customer\hsqldb
+2012-09-04 14:13:13.868 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-04 14:13:15.915 [main] INFO  com.xys.cenxi.customer.db.TableCreater - 创建数据库表。false
+2012-09-04 14:13:21.262 [main] INFO  com.xys.cenxi.customer.start.LoginUI - 用户admin登录。
+2012-09-04 14:14:22.776 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-04 14:14:22.782 [main] INFO  com.xys.cenxi.customer.util.Util - 创建数据库文件夹：E:\workspace\com.xys.cenxi.customer\hsqldb
+2012-09-04 14:14:22.799 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-04 14:14:26.787 [main] INFO  com.xys.cenxi.customer.db.TableCreater - 创建数据库表。false
+2012-09-04 14:14:30.777 [main] INFO  com.xys.cenxi.customer.start.LoginUI - 用户admin登录。
+2012-09-04 14:15:48.403 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-04 14:15:48.407 [main] INFO  com.xys.cenxi.customer.util.Util - 创建数据库文件夹：E:\workspace\com.xys.cenxi.customer\hsqldb
+2012-09-04 14:15:48.428 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-04 14:15:50.539 [main] INFO  com.xys.cenxi.customer.db.TableCreater - 创建数据库表。false
+2012-09-04 14:15:55.050 [main] INFO  com.xys.cenxi.customer.start.LoginUI - 用户admin登录。
+2012-09-04 14:18:34.470 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-04 14:18:34.475 [main] INFO  com.xys.cenxi.customer.util.Util - 创建数据库文件夹：E:\workspace\com.xys.cenxi.customer\hsqldb
+2012-09-04 14:18:34.504 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-04 14:18:36.464 [main] INFO  com.xys.cenxi.customer.db.TableCreater - 创建数据库表。false
+2012-09-04 14:18:42.047 [main] INFO  com.xys.cenxi.customer.start.LoginUI - 用户admin登录。
+2012-09-04 14:19:32.664 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-04 14:19:32.668 [main] INFO  com.xys.cenxi.customer.util.Util - 创建数据库文件夹：E:\workspace\com.xys.cenxi.customer\hsqldb
+2012-09-04 14:19:32.685 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-04 14:19:36.739 [main] INFO  com.xys.cenxi.customer.db.TableCreater - 创建数据库表。false
+2012-09-04 14:19:51.574 [main] INFO  com.xys.cenxi.customer.start.LoginUI - 用户aaa登录。
+2012-09-04 14:34:28.660 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-04 14:34:28.665 [main] INFO  com.xys.cenxi.customer.util.Util - 创建数据库文件夹：E:\workspace\com.xys.cenxi.customer\hsqldb
+2012-09-04 14:34:28.691 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-04 14:34:30.623 [main] INFO  com.xys.cenxi.customer.db.TableCreater - 创建数据库表。false
+2012-09-04 14:34:37.157 [main] INFO  com.xys.cenxi.customer.start.LoginUI - 用户admin登录。
+2012-09-04 14:34:37.164 [main] INFO  com.xys.cenxi.customer.start.AppMain - 打开软件。
+2012-09-04 14:36:22.040 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-04 14:36:22.045 [main] INFO  com.xys.cenxi.customer.util.Util - 创建数据库文件夹：E:\workspace\com.xys.cenxi.customer\hsqldb
+2012-09-04 14:36:22.074 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-04 14:36:23.959 [main] INFO  com.xys.cenxi.customer.db.TableCreater - 创建数据库表。false
+2012-09-04 14:36:31.995 [main] INFO  com.xys.cenxi.customer.start.LoginUI - 用户admin登录。
+2012-09-04 14:36:31.998 [main] INFO  com.xys.cenxi.customer.start.AppMain - 打开软件。
+2012-09-04 17:08:38.941 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-04 17:08:38.946 [main] INFO  com.xys.cenxi.customer.util.Util - 创建数据库文件夹：E:\workspace\com.xys.cenxi.customer\hsqldb
+2012-09-04 17:08:38.963 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-04 17:08:40.960 [main] INFO  com.xys.cenxi.customer.db.TableCreater - 创建数据库表。false
+2012-09-04 17:09:15.493 [main] INFO  com.xys.cenxi.customer.start.LoginUI - 用户admin登录。
+2012-09-04 17:09:15.503 [main] INFO  com.xys.cenxi.customer.start.AppMain - 打开软件。
+2012-09-04 17:11:09.092 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-04 17:11:09.096 [main] INFO  com.xys.cenxi.customer.util.Util - 创建数据库文件夹：E:\workspace\com.xys.cenxi.customer\hsqldb
+2012-09-04 17:11:09.119 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-04 17:11:11.034 [main] INFO  com.xys.cenxi.customer.db.TableCreater - 创建数据库表。false
+2012-09-04 17:11:16.321 [main] INFO  com.xys.cenxi.customer.start.LoginUI - 用户admin登录。
+2012-09-04 17:11:16.329 [main] INFO  com.xys.cenxi.customer.start.AppMain - 打开软件。
+2012-09-04 17:59:04.005 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-04 17:59:04.009 [main] INFO  com.xys.cenxi.customer.util.Util - 创建数据库文件夹：E:\workspace\com.xys.cenxi.customer\hsqldb
+2012-09-04 17:59:04.028 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-04 17:59:05.982 [main] INFO  com.xys.cenxi.customer.db.TableCreater - 创建数据库表。false
+2012-09-04 17:59:11.355 [main] INFO  com.xys.cenxi.customer.start.LoginUI - 用户admin登录。
+2012-09-04 17:59:11.365 [main] INFO  com.xys.cenxi.customer.start.AppMain - 打开软件。
+2012-09-04 17:59:52.566 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-04 17:59:52.571 [main] INFO  com.xys.cenxi.customer.util.Util - 创建数据库文件夹：E:\workspace\com.xys.cenxi.customer\hsqldb
+2012-09-04 17:59:52.597 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-04 17:59:54.506 [main] INFO  com.xys.cenxi.customer.db.TableCreater - 创建数据库表。false
+2012-09-04 18:00:05.346 [main] INFO  com.xys.cenxi.customer.start.LoginUI - 用户admin登录。
+2012-09-04 18:00:05.355 [main] INFO  com.xys.cenxi.customer.start.AppMain - 打开软件。

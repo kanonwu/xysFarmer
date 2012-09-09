@@ -1,0 +1,4 @@
+2012-09-02 17:16:27.866 [main] INFO  com.xys.cenxi.customer.start.LoginUI - 用户admin登录。
+2012-09-02 17:16:27.880 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
+2012-09-02 17:16:27.881 [main] INFO  com.xys.cenxi.customer.util.Util - 创建数据库文件夹：E:\workspace\com.xys.cenxi.customer\hsqldb
+2012-09-02 17:16:27.900 [main] INFO  com.xys.cenxi.customer.util.Util - 数据库文件路径：hsqldb
